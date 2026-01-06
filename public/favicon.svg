@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <style>
+    /* Default: Light mode browser sees dark circle with white logo */
+    :root {
+      --bg-color: #111827;
+      --logo-color: #ffffff;
+    }
+    
+    /* Dark mode browser sees white circle with dark logo */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #ffffff;
+        --logo-color: #111827;
+      }
+    }
+    
+    .bg { fill: var(--bg-color); }
+    .logo-content { color: var(--logo-color); }
+  </style>
+
+  <!-- Perfectly Circular Background -->
+  <circle cx="200" cy="200" r="200" class="bg" />
+
+  <!-- Logo Content Centered -->
+  <g transform="translate(40, 110) scale(0.8)" class="logo-content">
+    <g fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Hanger Hook -->
+      <path d="M198 50c0-12 18-12 18 0 0 8-10 10-15 18v12" />
+      <!-- Hanger Body -->
+      <path d="M90 120c15-8 75-40 108-40s93 32 108 40H90z" />
+    </g>
+    <text 
+      x="50%" 
+      y="220" 
+      text-anchor="middle" 
+      fill="currentColor" 
+      style="font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase;"
+    >
+      CLOTHE
+    </text>
+  </g>
+</svg>

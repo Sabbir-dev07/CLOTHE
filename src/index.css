@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        color-scheme: light;
+    }
+
+    html.dark {
+        color-scheme: dark;
+    }
+
+}
+
+@layer base {
+    body {
+        @apply bg-background text-primary font-sans antialiased transition-colors duration-300;
+    }
+
+    html.dark body {
+        background-color: theme('colors.dark-bg');
+        color: theme('colors.gray.50');
+    }
+
+    /* Accessibility improvements for focus states */
+    :focus-visible {
+        @apply outline-none ring-2 ring-accent ring-offset-2 dark:ring-offset-gray-900;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Custom Selection Color */
+    ::selection {
+        @apply bg-accent text-white;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: theme('colors.gray.100');
+    }
+
+    html.dark ::-webkit-scrollbar-track {
+        background-color: theme('colors.dark-bg');
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: theme('colors.gray.300');
+        border-radius: 9999px;
+        border: 2px solid theme('colors.gray.100');
+    }
+
+    html.dark ::-webkit-scrollbar-thumb {
+        background-color: theme('colors.gray.700');
+        border-color: theme('colors.dark-bg');
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-gray-400 dark:bg-gray-600;
+    }
+
+    /* Dark Mode Autofill Fix */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: theme('colors.primary');
+        transition: background-color 5000s ease-in-out 0s;
+        box-shadow: inset 0 0 20px 20px #ffffff29;
+    }
+
+    html.dark input:-webkit-autofill,
+    html.dark input:-webkit-autofill:hover,
+    html.dark input:-webkit-autofill:focus,
+    html.dark input:-webkit-autofill:active {
+        -webkit-text-fill-color: theme('colors.gray.50');
+        box-shadow: inset 0 0 20px 20px #00000029;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .container-custom {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .vertical-text {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+    }
+}
